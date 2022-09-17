@@ -11,6 +11,7 @@ public class MenuSlider : MonoBehaviour
     private void Update()
     {
         GameObject.Find("Number").GetComponent<Text>().text = "" + slider.value;
-        //sliderText.text = slider.value.ToString();
     }
+
+    
 }

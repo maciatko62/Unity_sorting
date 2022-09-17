@@ -148,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8384903695975926936, guid: 379a5d488f653374984698d064caa927, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8384903695975926936, guid: 379a5d488f653374984698d064caa927, type: 3}
       propertyPath: m_AnchorMax.x
@@ -906,9 +906,9 @@ RectTransform:
   - {fileID: 405340756}
   - {fileID: 2115571560}
   - {fileID: 1045329508}
+  - {fileID: 1469750051}
   - {fileID: 2801168989370641602}
   - {fileID: 78127798}
-  - {fileID: 1469750051}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1154,7 +1154,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 10
   m_MaxValue: 20
-  m_WholeNumbers: 0
+  m_WholeNumbers: 1
   m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1472,8 +1472,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.9985, y: 27}
-  m_SizeDelta: {x: 404.79, y: 30}
+  m_AnchoredPosition: {x: 1.9985, y: 32.446564}
+  m_SizeDelta: {x: 404.79, y: 40.8931}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1165401503
 MonoBehaviour:
@@ -1497,10 +1497,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1816,7 +1816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8384903695975926936, guid: 379a5d488f653374984698d064caa927, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8384903695975926936, guid: 379a5d488f653374984698d064caa927, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1969,6 +1969,7 @@ GameObject:
   - component: {fileID: 1545398731}
   - component: {fileID: 1545398730}
   - component: {fileID: 1545398733}
+  - component: {fileID: 1545398734}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2036,6 +2037,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acacda36b5c26ee46bcdfc3951411e0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1545398734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545398729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add71da1166b0c84c9a05d486bd4484b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 781293792}
+  tab: 
+  sliderValue: 10
 --- !u!1001 &1607125823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2859,7 +2875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8384903695975926936, guid: 379a5d488f653374984698d064caa927, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8384903695975926936, guid: 379a5d488f653374984698d064caa927, type: 3}
       propertyPath: m_AnchorMax.x
