@@ -10,7 +10,7 @@ public class List : MonoBehaviour
     //public int listCount;
     public int sliderValue;
     private int temp = 0;
-    public string task;
+    private string task;
 
     
 
@@ -20,7 +20,7 @@ public class List : MonoBehaviour
         if (temp == 0){
             ShuffleTheNumbers();
         }
-        GameObject.Find("YourList").GetComponent<Text>().text = "aaa";
+        //GameObject.Find("YourList").GetComponent<Text>().text = "aaa";
 
     }
     /*
@@ -73,6 +73,7 @@ public class List : MonoBehaviour
 
     }
 
+    
     public void YourList()
     {
         task = "";
@@ -82,4 +83,5 @@ public class List : MonoBehaviour
         }
         GameObject.Find("YourList").GetComponent<Text>().text = task;
     }
+    
 }
