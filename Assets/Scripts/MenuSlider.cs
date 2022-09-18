@@ -8,10 +8,13 @@ public class MenuSlider : MonoBehaviour
     public Slider slider;
     public Text sliderText;
 
-    private void Update()
+    public void Updated()
+    {
+        GameObject.Find("Number").GetComponent<Text>().text = "" + slider.value;
+    }
+    public void Start()
     {
         GameObject.Find("Number").GetComponent<Text>().text = "" + slider.value;
     }
 
-    
 }
