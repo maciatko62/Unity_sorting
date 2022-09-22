@@ -7,16 +7,19 @@ public class AiScript : MonoBehaviour
 {
     NavMeshAgent agent;
     public Transform point;
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         agent.destination = point.position;
+        animator.SetFloat("Speed", agent.velocity.magnitude);
     }
 }
