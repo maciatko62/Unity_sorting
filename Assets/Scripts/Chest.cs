@@ -16,7 +16,7 @@ public class Chest : MonoBehaviour
             chest.name = "Chest" + i;
             Instantiate(chest, transform.position, transform.rotation);
 
-            transform.position = new Vector3(transform.position.x + 0.6f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x + 0.7f, transform.position.y, transform.position.z);
 
             GameObject.FindGameObjectWithTag("1").GetComponent<TMPro.TextMeshProUGUI>().text = "" + PlayerPrefs.GetInt("list_" + i);
             GameObject.FindGameObjectWithTag("1").tag = "2";

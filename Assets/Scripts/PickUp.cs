@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    public float pickUpRange = 5;
+    public float pickUpRange = 5; // 5
     public Transform holdParent;
     private GameObject heldObj;
     public float moveForce = 250;
@@ -16,8 +16,9 @@ public class PickUp : MonoBehaviour
             if(heldObj == null)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
+                if (Physics.Raycast(transform.position, transform.TransformDirection(0,5.5f,1), out hit, pickUpRange))
                 {
+                    Debug.Log("Clicked on " + hit.transform.name);
                     PickUpObject(hit.transform.gameObject);
                 }
             }
@@ -36,7 +37,7 @@ public class PickUp : MonoBehaviour
 
     void MoveObject()
     {
-        if(Vector3.Distance(heldObj.transform.position, holdParent.position) > 0.1f)
+        if(Vector3.Distance(heldObj.transform.position, holdParent.position) > 0.1f) //0.1f
         {
             Vector3 moveDirection = (holdParent.position - heldObj.transform.position);
             heldObj.GetComponent<Rigidbody>().AddForce(moveDirection * moveForce);
