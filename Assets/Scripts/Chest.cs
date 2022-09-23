@@ -24,4 +24,7 @@ public class Chest : MonoBehaviour
         
     }
 
+    //Z = 1.48 Y-0.01
+
+    //godz 11 do 12 B4 zielony
 }
