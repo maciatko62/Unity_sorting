@@ -489,6 +489,7 @@ GameObject:
   m_Component:
   - component: {fileID: 369843833064790366}
   - component: {fileID: 6871725311753526723}
+  - component: {fileID: 311644175515212273}
   m_Layer: 0
   m_Name: B-spine
   m_TagString: Untagged
@@ -528,6 +529,20 @@ MonoBehaviour:
   holdParentL: {fileID: 3193405228659068292}
   holdParentT: {fileID: 1622438534205679798}
   moveForce: 250
+--- !u!114 &311644175515212273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369843833065014654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0acb40e54efde054e9314c40db4f439d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  list: 
+  pickUp: {fileID: 0}
 --- !u!1 &1001215401883340710
 GameObject:
   m_ObjectHideFlags: 0

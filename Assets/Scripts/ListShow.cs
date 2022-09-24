@@ -14,11 +14,7 @@ public class ListShow : MonoBehaviour
         //YourList();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     public void YourList()
     {

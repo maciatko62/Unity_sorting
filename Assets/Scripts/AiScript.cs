@@ -23,7 +23,7 @@ public class AiScript : MonoBehaviour
     void Update()
     {
         if (go == true) {
-            agent.destination = GameObject.Find("Point10(Clone)").transform.position;
+            agent.destination = GameObject.Find("Point1(Clone)").transform.position;
             animator.SetFloat("Speed", agent.velocity.magnitude);
             agent.transform.LookAt(GameObject.Find("Pointa").transform.position);
 

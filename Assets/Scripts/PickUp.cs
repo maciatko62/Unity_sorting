@@ -157,7 +157,7 @@ public class PickUp : MonoBehaviour
         }
     }
 
-    void DropObjectR()
+    public void DropObjectR()
     {
         Rigidbody heldRig = heldObjR.GetComponent<Rigidbody>();
         heldObjR.GetComponent<Rigidbody>().useGravity = true;
@@ -166,7 +166,7 @@ public class PickUp : MonoBehaviour
         heldObjR = null;
 
     }
-    void DropObjectL()
+    public void DropObjectL()
     {
         Rigidbody heldRig = heldObjL.GetComponent<Rigidbody>();
         heldObjL.GetComponent<Rigidbody>().useGravity = true;
@@ -174,5 +174,82 @@ public class PickUp : MonoBehaviour
         heldObjL.transform.parent = null;
         heldObjL = null;
 
+    }
+
+    public void PickUpR()
+    {
+        if (heldObjR == null)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(0, 0.5f, 1), out hit, pickUpRange)) //5.5f  transform.TransformDirection(0,0,1)  transform.TransformDirection(Vector3.forward)
+            {
+                Debug.Log("Clicked on " + hit.transform.name);
+                PickUpObjectR(hit.transform.gameObject);
+            }
+        }
+        else
+        {
+            DropObjectR();
+        } 
+    }
+
+    public void PickUpL()
+    {
+        if (heldObjL == null)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(0, -0.5f, 1), out hit, pickUpRange)) //5.5f  transform.TransformDirection(0,0,1)  transform.TransformDirection(Vector3.forward)
+            {
+                Debug.Log("Clicked on " + hit.transform.name);
+                PickUpObjectL(hit.transform.gameObject);
+            }
+        }
+        else
+        {
+            DropObjectL();
+        }
+    }
+    public void PickUpT()
+    {
+        if (heldObjL != null & heldObjR != null)
+        {
+            heldObjL.transform.position = holdParentT.position;
+            heldObjT = heldObjL;
+            heldObjL = null;
+            MoveObjectT();
+        }
+        else
+        {
+            //DropObjectL();
+        }
+    }
+
+    public void RightToLeft()
+    {
+        if (heldObjL == null & heldObjR != null)
+        {
+            heldObjR.transform.position = holdParentL.position;
+            heldObjL = heldObjR;
+            heldObjR = null;
+            MoveObjectL();
+        }
+        else
+        {
+            //DropObjectL();
+        }
+    }
+    public void LeftToRight()
+    {
+        if (heldObjL != null & heldObjR == null)
+        {
+            heldObjT.transform.position = holdParentR.position;
+            heldObjR = heldObjT;
+            heldObjT = null;
+            MoveObjectR();
+        }
+        else
+        {
+            //DropObjectL();
+        }
     }
 }
