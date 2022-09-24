@@ -7,8 +7,10 @@ public class PickUp : MonoBehaviour
     public float pickUpRange = 5; // 5
     public Transform holdParentR;
     public Transform holdParentL;
+    public Transform holdParentT; //top
     private GameObject heldObjR;
     private GameObject heldObjL;
+    private GameObject heldObjT;
     public float moveForce = 250;
 
     private void Update()
@@ -48,6 +50,54 @@ public class PickUp : MonoBehaviour
 
         }
 
+        if (Input.GetKeyDown(KeyCode.T)) //change L chest position
+        {
+            if (heldObjL != null & heldObjR != null)
+            {
+                heldObjL.transform.position = holdParentT.position;
+                heldObjT = heldObjL;
+                heldObjL = null;
+                MoveObjectT();
+            }
+            else
+            {
+                //DropObjectL();
+            }
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Y)) //change R chest position
+        {
+            if (heldObjL == null & heldObjR != null)
+            {
+                heldObjR.transform.position = holdParentL.position;
+                heldObjL = heldObjR;
+                heldObjR = null;
+                MoveObjectL();
+            }
+            else
+            {
+                //DropObjectL();
+            }
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.U)) //change T chest position
+        {
+            if (heldObjL != null & heldObjR == null)
+            {
+                heldObjT.transform.position = holdParentR.position;
+                heldObjR = heldObjT;
+                heldObjT = null;
+                MoveObjectR();
+            }
+            else
+            {
+                //DropObjectL();
+            }
+
+        }
+
         if (heldObjR != null)
         {
             MoveObjectR();
@@ -72,6 +122,15 @@ public class PickUp : MonoBehaviour
         {
             Vector3 moveDirection = (holdParentL.position - heldObjL.transform.position);
             heldObjL.GetComponent<Rigidbody>().AddForce(moveDirection * moveForce);
+        }
+    }
+
+    void MoveObjectT()
+    {
+        if (Vector3.Distance(heldObjT.transform.position, holdParentT.position) > 0.1f) //0.1f
+        {
+            Vector3 moveDirection = (holdParentT.position - heldObjT.transform.position);
+            heldObjT.GetComponent<Rigidbody>().AddForce(moveDirection * moveForce);
         }
     }
 
