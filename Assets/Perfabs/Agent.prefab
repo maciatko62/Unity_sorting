@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c48466378dec687498ca270caf5a41b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  point: {fileID: 0}
+  targetPoint: 0
 --- !u!195 &351651052493496858
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -543,6 +543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   list: 
   pickUp: {fileID: 0}
+  ai: {fileID: 2746002214368503959}
 --- !u!1 &1001215401883340710
 GameObject:
   m_ObjectHideFlags: 0

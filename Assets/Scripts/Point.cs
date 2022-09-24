@@ -16,10 +16,8 @@ public class Point : MonoBehaviour
             Instantiate(point, transform.position, transform.rotation);
 
             transform.position = new Vector3(transform.position.x + 0.7f, transform.position.y, transform.position.z);
-
-            //GameObject.FindGameObjectWithTag("1").GetComponent<TMPro.TextMeshProUGUI>().text = "" + PlayerPrefs.GetInt("list_" + i);
-            //GameObject.FindGameObjectWithTag("1").tag = "2";
         }
 
     }
+
 }
