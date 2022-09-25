@@ -42,8 +42,8 @@ public class BubbleSort : MonoBehaviour
                 yield return new WaitForSeconds(1.5f);
                 pickUp.PickUpL();
                 pickUp.PickUpR();
-                //numberOfSteps++;
-                //GameObject.Find("TextN").GetComponent<Text>().text = "Number of steps: " + numberOfSteps;
+                numberOfSteps++;
+                GameObject.Find("TextN").GetComponent<Text>().text = "Number of steps: " + numberOfSteps;
                 yield return new WaitForSeconds(0.5f);
 
                 if (list[i] > list[i + 1])

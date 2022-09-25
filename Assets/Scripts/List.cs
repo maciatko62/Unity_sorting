@@ -17,7 +17,12 @@ public class List : MonoBehaviour
     public void Start()
     {
         sliderValue = (int)slider.value;
-        if (temp == 0){
+        if (PlayerPrefs.GetInt("listCount") >= 10){
+            Debug.Log("NotShuffleTheNumbers");
+            slider.value = PlayerPrefs.GetInt("listCount");
+        }
+        else
+        {
             ShuffleTheNumbers();
         }
         //GameObject.Find("YourList").GetComponent<Text>().text = "aaa";
@@ -77,7 +82,7 @@ public class List : MonoBehaviour
     public void YourList()
     {
         task = "";
-        for (int i = 0; i < list.Count; i++)
+        for (int i = 0; i < PlayerPrefs.GetInt("listCount"); i++)
         {
             task = task + PlayerPrefs.GetInt("list_" + i) + ", ";
         }
