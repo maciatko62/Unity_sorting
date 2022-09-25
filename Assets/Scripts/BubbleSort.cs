@@ -7,9 +7,11 @@ public class BubbleSort : MonoBehaviour
     public List<int> list;
     public PickUp pickUp;
     public AiScript ai;
+    public MenuScript menu;
 
     void Start()
     {
+        menu.FinalMessageOff();
         pickUp = GetComponent<PickUp>();
         for (int i = 0; i < PlayerPrefs.GetInt("listCount"); i++)
         {
@@ -25,23 +27,6 @@ public class BubbleSort : MonoBehaviour
     }
     IEnumerator StartBuubleSort(List<int> listt)
     {
-        /*
-        yield return new WaitForSeconds(5);
-        pickUp.PickUpL();
-        //yield return new WaitForSeconds(0.5f);
-        pickUp.PickUpR();
-        yield return new WaitForSeconds(0.5f);
-        pickUp.PickUpT();
-        yield return new WaitForSeconds(0.5f);
-        pickUp.RightToLeft();
-        yield return new WaitForSeconds(0.5f);
-        pickUp.LeftToRight();
-        yield return new WaitForSeconds(0.5f);
-        pickUp.DropObjectL();
-        pickUp.DropObjectR();
-        yield return new WaitForSeconds(0.5f);
-        ai.targetPoint = 3;
-        */
 
         int n = listt.Count;
         do
@@ -51,6 +36,7 @@ public class BubbleSort : MonoBehaviour
             {
                 ai.targetPoint = i;
                 yield return new WaitForSeconds(1.5f);
+                
 
                 pickUp.PickUpL();
                 pickUp.PickUpR();
@@ -79,7 +65,7 @@ public class BubbleSort : MonoBehaviour
             yield return new WaitForSeconds(6f);
         }
         while (n > 1);
-
+        menu.FinalMessageOn();
         for (int i = 0; i < listt.Count; i++)
         {
             //Debug.Log(listt[i]);

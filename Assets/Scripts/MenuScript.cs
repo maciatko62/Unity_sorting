@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
+    public GameObject finalMessage;
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -19,6 +20,15 @@ public class MenuScript : MonoBehaviour
     {
         Debug.Log("Quit :(");
         Application.Quit();
+    }
+
+    public void FinalMessageOn()
+    {
+        finalMessage.SetActive(true);
+    }
+    public void FinalMessageOff()
+    {
+        finalMessage.SetActive(false);
     }
 
     /*
