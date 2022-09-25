@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BubbleSort : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class BubbleSort : MonoBehaviour
         }
 
         StartCoroutine(StartBuubleSort(list));
+        StartCoroutine(StartTime());
     }
     IEnumerator StartBuubleSort(List<int> listt)
     {
@@ -36,8 +38,6 @@ public class BubbleSort : MonoBehaviour
             {
                 ai.targetPoint = i;
                 yield return new WaitForSeconds(1.5f);
-                
-
                 pickUp.PickUpL();
                 pickUp.PickUpR();
                 yield return new WaitForSeconds(0.5f);
@@ -72,4 +72,28 @@ public class BubbleSort : MonoBehaviour
         }
     }
 
+    IEnumerator StartTime()
+    {
+        yield return new WaitForSeconds(1.5f);
+        GameObject.Find("TextN").GetComponent<Text>().text = "Number of steps: 0";
+        GameObject.Find("TextT").GetComponent<Text>().text = "Sorting time: 00:00";
+        for(int j = 0; j < 10; j++)
+        {
+            for (int i = 0; i < 60; i++)
+            {
+                
+                if (i < 10)
+                {
+                    GameObject.Find("TextT").GetComponent<Text>().text = "Sorting time: 0" + j +":0" + i;
+                }
+                else
+                {
+                    GameObject.Find("TextT").GetComponent<Text>().text = "Sorting time: 0" + j + ":" + i;
+                }
+                yield return new WaitForSeconds(1);
+            }
+
+        }
+        
+    }
 }

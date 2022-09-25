@@ -724,7 +724,7 @@ GameObject:
   - component: {fileID: 1054499025}
   - component: {fileID: 1054499024}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TextT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -782,7 +782,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Sorting time: 00:00'
+  m_Text: 'Sorting time: --:--'
 --- !u!222 &1054499025
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1231,7 +1231,7 @@ GameObject:
   - component: {fileID: 1334572870}
   - component: {fileID: 1334572869}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TextN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1289,7 +1289,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Number of steps: 0'
+  m_Text: 'Number of steps: -'
 --- !u!222 &1334572870
 CanvasRenderer:
   m_ObjectHideFlags: 0
