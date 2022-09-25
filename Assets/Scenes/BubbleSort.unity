@@ -782,7 +782,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Sorting time: --:--'
+  m_Text: 'Sorting time: 00:00'
 --- !u!222 &1054499025
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1289,7 +1289,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Number of steps: -'
+  m_Text: 'Number of steps: 0'
 --- !u!222 &1334572870
 CanvasRenderer:
   m_ObjectHideFlags: 0
