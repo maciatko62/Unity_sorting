@@ -18,7 +18,6 @@ public class ListShow : MonoBehaviour
 
     public void YourList()
     {
-        Debug.Log("aa");
         task = "";
         for (int i = 0; i < PlayerPrefs.GetInt("listCount"); i++)
         {

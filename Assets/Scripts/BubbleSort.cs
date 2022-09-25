@@ -51,9 +51,9 @@ public class BubbleSort : MonoBehaviour
                     numberOfSteps++;
                     GameObject.Find("TextN").GetComponent<Text>().text = "Number of steps: " + numberOfSteps;
                     pickUp.PickUpT();
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(0.1f);
                     pickUp.RightToLeft();
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(0.1f);
                     pickUp.LeftToRight();
                     yield return new WaitForSeconds(0.5f);
                     

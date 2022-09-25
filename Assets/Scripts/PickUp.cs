@@ -15,88 +15,6 @@ public class PickUp : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if(heldObjR == null)
-            {
-                RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.TransformDirection(0, 0.5f, 1), out hit, pickUpRange)) //5.5f  transform.TransformDirection(0,0,1)  transform.TransformDirection(Vector3.forward)
-                {
-                    Debug.Log("Clicked on " + hit.transform.name);
-                    PickUpObjectR(hit.transform.gameObject);
-                }
-            }
-            else
-            {
-                DropObjectR();
-            }
-
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            if (heldObjL == null)
-            {
-                RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.TransformDirection(0, -0.5f, 1), out hit, pickUpRange)) //5.5f  transform.TransformDirection(0,0,1)  transform.TransformDirection(Vector3.forward)
-                {
-                    Debug.Log("Clicked on " + hit.transform.name);
-                    PickUpObjectL(hit.transform.gameObject);
-                }
-            }
-            else
-            {
-                DropObjectL();
-            }
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.T)) //change L chest position
-        {
-            if (heldObjL != null & heldObjR != null)
-            {
-                heldObjL.transform.position = holdParentT.position;
-                heldObjT = heldObjL;
-                heldObjL = null;
-                MoveObjectT();
-            }
-            else
-            {
-                //DropObjectL();
-            }
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.Y)) //change R chest position
-        {
-            if (heldObjL == null & heldObjR != null)
-            {
-                heldObjR.transform.position = holdParentL.position;
-                heldObjL = heldObjR;
-                heldObjR = null;
-                MoveObjectL();
-            }
-            else
-            {
-                //DropObjectL();
-            }
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.U)) //change T chest position
-        {
-            if (heldObjL != null & heldObjR == null)
-            {
-                heldObjT.transform.position = holdParentR.position;
-                heldObjR = heldObjT;
-                heldObjT = null;
-                MoveObjectR();
-            }
-            else
-            {
-                //DropObjectL();
-            }
-
-        }
 
         if (heldObjR != null)
         {
@@ -105,6 +23,10 @@ public class PickUp : MonoBehaviour
         if (heldObjL != null)
         {
             MoveObjectL();
+        }
+        if (heldObjT != null)
+        {
+            MoveObjectT();
         }
     }
 
@@ -154,6 +76,17 @@ public class PickUp : MonoBehaviour
             objRig.drag = 20;
 
             heldObjL = pickObj;
+        }
+    }
+    void PickUpObjectT(GameObject pickObj)
+    {
+        if (pickObj.GetComponent<Rigidbody>())
+        {
+            Rigidbody objRig = pickObj.GetComponent<Rigidbody>();
+            objRig.useGravity = false;
+            objRig.drag = 20;
+
+            heldObjT = pickObj;
         }
     }
 

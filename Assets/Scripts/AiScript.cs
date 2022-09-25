@@ -25,9 +25,5 @@ public class AiScript : MonoBehaviour
             animator.SetFloat("Speed", agent.velocity.magnitude);
             agent.transform.LookAt(GameObject.Find("Pointa").transform.position);
     }
-    public void AiGo(int i)
-    {
 
-        Debug.Log("no hej");
-    }
 }
