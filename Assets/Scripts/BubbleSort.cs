@@ -83,8 +83,6 @@ public class BubbleSort : MonoBehaviour
     IEnumerator StartTime()
     {
         yield return new WaitForSeconds(1.5f);
-        //GameObject.Find("TextN").GetComponent<Text>().text = "Number of steps: 0";
-        //GameObject.Find("TextT").GetComponent<Text>().text = "Sorting time: 00:00";
         for(int j = 0; j < 10; j++)
         {
             for (int i = 0; i < 60; i++)
