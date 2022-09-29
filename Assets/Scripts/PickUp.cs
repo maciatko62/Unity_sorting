@@ -8,8 +8,8 @@ public class PickUp : MonoBehaviour
     public Transform holdParentR;
     public Transform holdParentL;
     public Transform holdParentT; //top
-    private GameObject heldObjR;
-    private GameObject heldObjL;
+    public GameObject heldObjR;
+    public GameObject heldObjL;
     private GameObject heldObjT;
     public float moveForce = 250;
 
@@ -32,7 +32,7 @@ public class PickUp : MonoBehaviour
 
     void MoveObjectR()
     {
-        if(Vector3.Distance(heldObjR.transform.position, holdParentR.position) > 0.1f) //0.1f
+        if(Vector3.Distance(heldObjR.transform.position, holdParentR.position) > 0.01f) //0.1f
         {
             Vector3 moveDirection = (holdParentR.position - heldObjR.transform.position);
             heldObjR.GetComponent<Rigidbody>().AddForce(moveDirection * moveForce);
@@ -40,7 +40,7 @@ public class PickUp : MonoBehaviour
     }
     void MoveObjectL()
     {
-        if(Vector3.Distance(heldObjL.transform.position, holdParentL.position) > 0.1f) //0.1f
+        if(Vector3.Distance(heldObjL.transform.position, holdParentL.position) > 0.01f) //0.1f
         {
             Vector3 moveDirection = (holdParentL.position - heldObjL.transform.position);
             heldObjL.GetComponent<Rigidbody>().AddForce(moveDirection * moveForce);
@@ -49,7 +49,7 @@ public class PickUp : MonoBehaviour
 
     void MoveObjectT()
     {
-        if (Vector3.Distance(heldObjT.transform.position, holdParentT.position) > 0.1f) //0.1f
+        if (Vector3.Distance(heldObjT.transform.position, holdParentT.position) > 0.01f) //0.1f
         {
             Vector3 moveDirection = (holdParentT.position - heldObjT.transform.position);
             heldObjT.GetComponent<Rigidbody>().AddForce(moveDirection * moveForce);
@@ -171,14 +171,43 @@ public class PickUp : MonoBehaviour
             //DropObjectL();
         }
     }
-    public void LeftToRight()
+    public void TopToRight()
     {
-        if (heldObjL != null & heldObjR == null)
+        if (heldObjT != null & heldObjR == null)
         {
             heldObjT.transform.position = holdParentR.position;
             heldObjR = heldObjT;
             heldObjT = null;
             MoveObjectR();
+        }
+        else
+        {
+            //DropObjectL();
+        }
+    }
+    public void LeftToRight()
+    {
+        if (heldObjL != null & heldObjR == null)
+        {
+            heldObjL.transform.position = holdParentR.position;
+            heldObjR = heldObjL;
+            heldObjL = null;
+            MoveObjectR();
+        }
+        else
+        {
+            //DropObjectL();
+        }
+    }
+
+    public void RightToT()
+    {
+        if (heldObjT == null & heldObjR != null)
+        {
+            heldObjR.transform.position = holdParentT.position;
+            heldObjT = heldObjR;
+            heldObjR = null;
+            MoveObjectT();
         }
         else
         {
