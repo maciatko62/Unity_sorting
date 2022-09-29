@@ -16,6 +16,7 @@ public class MenuScript : MonoBehaviour
 
     public void BackToMenu()
     {
+        Destroy(GameObject.Find("AudioSource"));
         SceneManager.LoadScene("Menu");
     }
     public void QuiteGame()
