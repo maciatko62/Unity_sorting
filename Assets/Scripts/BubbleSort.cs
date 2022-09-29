@@ -9,7 +9,7 @@ public class BubbleSort : MonoBehaviour
     public PickUp pickUp;
     public AiScript ai;
     public MenuScript menu;
-    private bool stopTime =false;
+    private bool stopTime = false;
     private int numberOfSteps = 0;
 
     void Start()
@@ -42,7 +42,6 @@ public class BubbleSort : MonoBehaviour
 
     IEnumerator StartShellSort(List<int> listt)
     {
-        yield return new WaitForSeconds(4);
 
         int n = listt.Count;
 
@@ -54,7 +53,7 @@ public class BubbleSort : MonoBehaviour
                 int temp = listt[i];
 
                 ai.targetPoint = i - 1;
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(6);
                 numberOfSteps++;
 
                 GameObject.Find("TextN").GetComponent<Text>().text = "Number of steps: " + numberOfSteps;
@@ -67,7 +66,7 @@ public class BubbleSort : MonoBehaviour
                     listt[j] = listt[j - gap];
 
                     ai.targetPoint = j -gap;
-                    yield return new WaitForSeconds(2);
+                    yield return new WaitForSeconds(4);
                     numberOfSteps++;
                     GameObject.Find("TextN").GetComponent<Text>().text = "Number of steps: " + numberOfSteps;
                     pickUp.PickUpR();
@@ -86,7 +85,7 @@ public class BubbleSort : MonoBehaviour
                     pickUp.DropObjectR();
                     yield return new WaitForSeconds(2);
                     ai.targetPoint = i - 1;
-                    yield return new WaitForSeconds(2);
+                    yield return new WaitForSeconds(4);
                 }
 
                 if(pickUp.heldObjL != null)
@@ -180,9 +179,6 @@ public class BubbleSort : MonoBehaviour
     }
 
     
-
-    
-
     IEnumerator StartBuubleSort(List<int> listt)
     {
 
@@ -231,9 +227,6 @@ public class BubbleSort : MonoBehaviour
         stopTime = true;
 
     }
-
-
-
 
 
     IEnumerator StartTime()

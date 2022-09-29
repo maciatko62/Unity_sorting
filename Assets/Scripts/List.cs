@@ -7,7 +7,6 @@ public class List : MonoBehaviour
 {
     public Slider slider;
     public List<int> list;
-    //public int listCount;
     public int sliderValue;
     private int temp = 0;
     private string task;
@@ -25,14 +24,8 @@ public class List : MonoBehaviour
         {
             ShuffleTheNumbers();
         }
-        //GameObject.Find("YourList").GetComponent<Text>().text = "aaa";
 
     }
-    /*
-    private void Update()
-    {
-        sliderValue = (int)slider.value;
-    }*/
 
     public void ShuffleTheNumbers() //losowanie zmiennej wielkoœci wartoœci bez powtórzeñ
     {
@@ -74,8 +67,6 @@ public class List : MonoBehaviour
 
         temp = 1;
         Debug.Log(temp);
-
-
     }
 
     

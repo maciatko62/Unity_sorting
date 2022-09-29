@@ -6,9 +6,7 @@ using UnityEngine.UI;
 public class Chest : MonoBehaviour
 {
     public GameObject chest;
-    //public Vector3 pos;
 
-    // Start is called before the first frame update
     void Start()
     {
         for(int i = 0; i < PlayerPrefs.GetInt("listCount"); i++)
@@ -24,7 +22,4 @@ public class Chest : MonoBehaviour
         
     }
 
-    //Z = 1.48 Y-0.01
-
-    //godz 11 do 12 B4 zielony
 }

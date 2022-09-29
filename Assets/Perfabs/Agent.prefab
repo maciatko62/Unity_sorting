@@ -165,6 +165,8 @@ MonoBehaviour:
   moveForce: 250
   audio: {fileID: 0}
   clip: []
+  anim: {fileID: 0}
+  gameObject: {fileID: 0}
 --- !u!65 &6813488346794352462
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -541,6 +543,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 566416e9a88510a42a77e0a651fc7d47, type: 3}
   - {fileID: 8300000, guid: dee36397b4535a245a3f3a835afc5c42, type: 3}
   - {fileID: 8300000, guid: 8248798df44eb0b4b9e43efac59622f4, type: 3}
+  anim: {fileID: 369843833072318178}
+  gameObject: {fileID: 369843833065014424}
 --- !u!114 &311644175515212273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1979,6 +1983,8 @@ MonoBehaviour:
   moveForce: 250
   audio: {fileID: 0}
   clip: []
+  anim: {fileID: 0}
+  gameObject: {fileID: 0}
 --- !u!1 &8656777795201752688
 GameObject:
   m_ObjectHideFlags: 0

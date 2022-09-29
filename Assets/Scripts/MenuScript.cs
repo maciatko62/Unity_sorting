@@ -50,15 +50,4 @@ public class MenuScript : MonoBehaviour
     {
         PlayerPrefs.SetInt("Sort", 3);
     }
-
-    /*
-    public void SoundMenuOn()
-    {
-        PlayerPrefs.SetInt("MenuSound", 1);
-    }
-    public void SoundMenuOff()
-    {
-        PlayerPrefs.SetInt("MenuSound", 0);
-    }
-    */
 }

@@ -17,7 +17,7 @@ public class PickUp : MonoBehaviour
 
     private void Update()
     {
-
+        
         if (heldObjR != null)
         {
             MoveObjectR();

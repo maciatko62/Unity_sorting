@@ -5,9 +5,7 @@ using UnityEngine;
 public class Point : MonoBehaviour
 {
     public GameObject point;
-    //public Vector3 pos;
 
-    // Start is called before the first frame update
     void Start()
     {
         for (int i = 0; i < PlayerPrefs.GetInt("listCount"); i++)

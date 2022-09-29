@@ -1411,7 +1411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5325791831347024762, guid: 07a87951a56961b4fb2db21b3d1ceaad, type: 3}
       propertyPath: m_Text
-      value: Merge Sort
+      value: Shell Sort
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a87951a56961b4fb2db21b3d1ceaad, type: 3}
@@ -3107,7 +3107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5325791831347024762, guid: 07a87951a56961b4fb2db21b3d1ceaad, type: 3}
       propertyPath: m_Text
-      value: Quick sort
+      value: Insertion sort
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a87951a56961b4fb2db21b3d1ceaad, type: 3}
