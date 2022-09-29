@@ -12,6 +12,8 @@ public class PickUp : MonoBehaviour
     public GameObject heldObjL;
     private GameObject heldObjT;
     public float moveForce = 250;
+    public AudioSource audio;
+    public AudioClip[] clip;
 
     private void Update()
     {
@@ -92,6 +94,8 @@ public class PickUp : MonoBehaviour
 
     public void DropObjectR()
     {
+        audio.clip = clip[1];
+        audio.Play();
         Rigidbody heldRig = heldObjR.GetComponent<Rigidbody>();
         heldObjR.GetComponent<Rigidbody>().useGravity = true;
         heldRig.drag = 1;
@@ -101,6 +105,8 @@ public class PickUp : MonoBehaviour
     }
     public void DropObjectL()
     {
+        audio.clip = clip[1];
+        audio.Play();
         Rigidbody heldRig = heldObjL.GetComponent<Rigidbody>();
         heldObjL.GetComponent<Rigidbody>().useGravity = true;
         heldRig.drag = 1;
@@ -111,6 +117,8 @@ public class PickUp : MonoBehaviour
 
     public void PickUpR()
     {
+        audio.clip = clip[0];
+        audio.Play();
         if (heldObjR == null)
         {
             RaycastHit hit;
@@ -128,6 +136,8 @@ public class PickUp : MonoBehaviour
 
     public void PickUpL()
     {
+        audio.clip = clip[0];
+        audio.Play();
         if (heldObjL == null)
         {
             RaycastHit hit;
@@ -144,6 +154,8 @@ public class PickUp : MonoBehaviour
     }
     public void PickUpT()
     {
+        audio.clip = clip[0];
+        audio.Play();
         if (heldObjL != null & heldObjR != null)
         {
             heldObjL.transform.position = holdParentT.position;
@@ -159,6 +171,8 @@ public class PickUp : MonoBehaviour
 
     public void RightToLeft()
     {
+        audio.clip = clip[0];
+        audio.Play();
         if (heldObjL == null & heldObjR != null)
         {
             heldObjR.transform.position = holdParentL.position;
@@ -173,6 +187,8 @@ public class PickUp : MonoBehaviour
     }
     public void TopToRight()
     {
+        audio.clip = clip[0];
+        audio.Play();
         if (heldObjT != null & heldObjR == null)
         {
             heldObjT.transform.position = holdParentR.position;
@@ -187,6 +203,8 @@ public class PickUp : MonoBehaviour
     }
     public void LeftToRight()
     {
+        audio.clip = clip[0];
+        audio.Play();
         if (heldObjL != null & heldObjR == null)
         {
             heldObjL.transform.position = holdParentR.position;
@@ -202,6 +220,8 @@ public class PickUp : MonoBehaviour
 
     public void RightToT()
     {
+        audio.clip = clip[0];
+        audio.Play();
         if (heldObjT == null & heldObjR != null)
         {
             heldObjR.transform.position = holdParentT.position;

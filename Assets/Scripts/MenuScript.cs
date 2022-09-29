@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class MenuScript : MonoBehaviour
 {
     public GameObject finalMessage;
+    public PickUp sound;
+
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -24,10 +26,13 @@ public class MenuScript : MonoBehaviour
 
     public void FinalMessageOn()
     {
+        sound.audio.clip = sound.clip[2];
+        sound.audio.Play();
         finalMessage.SetActive(true);
     }
     public void FinalMessageOff()
     {
+        
         finalMessage.SetActive(false);
     }
 

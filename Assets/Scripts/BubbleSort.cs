@@ -25,9 +25,30 @@ public class BubbleSort : MonoBehaviour
 
         //StartCoroutine(StartBuubleSort(list));
         StartCoroutine(StartInsertionSort(list));
+        //StartCoroutine(StartShellSort(list));
         //StartCoroutine(QuickSort(list,0, list.Count-1));
 
         StartCoroutine(StartTime());
+    }
+
+    IEnumerator StartShellSort(List<int> listt)
+    {
+        int n = listt.Count;
+        for (int interval = n / 2; interval > 0; interval /= 2)
+        {
+            for (int i = interval; i < n; i++)
+            {
+                var currentKey = listt[i];
+                var k = i;
+                while (k >= interval && listt[k - interval] > currentKey)
+                {
+                    listt[k] = listt[k - interval];
+                    k -= interval;
+                }
+                listt[k] = currentKey;
+            }
+        }
+        yield return new WaitForSeconds(2);
     }
 
     IEnumerator StartInsertionSort(List<int> listt)
@@ -103,6 +124,8 @@ public class BubbleSort : MonoBehaviour
             listt[j + 1] = key;
         }
     }
+
+    
 
     IEnumerator QuickSort(List<int> listt, int left, int right)
     {
