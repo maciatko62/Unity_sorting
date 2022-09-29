@@ -16,49 +16,99 @@ public class BubbleSort : MonoBehaviour
     {
         menu.FinalMessageOff();
         pickUp = GetComponent<PickUp>();
+
         for (int i = 0; i < PlayerPrefs.GetInt("listCount"); i++)
         {
             list.Add(PlayerPrefs.GetInt("list_" + i));
         }
 
-
-
-        //StartCoroutine(StartBuubleSort(list));
-        StartCoroutine(StartInsertionSort(list));
-        //StartCoroutine(StartShellSort(list));
-        //StartCoroutine(QuickSort(list,0, list.Count-1));
-
         StartCoroutine(StartTime());
+
+        if (PlayerPrefs.GetInt("Sort") == 1)
+        {
+            StartCoroutine(StartBuubleSort(list));
+        }
+        else if(PlayerPrefs.GetInt("Sort") == 2)
+        {
+            StartCoroutine(StartInsertionSort(list));
+        }
+        else
+        {
+            StartCoroutine(StartShellSort(list));
+        }
+
+        
     }
 
     IEnumerator StartShellSort(List<int> listt)
     {
+        yield return new WaitForSeconds(4);
+
         int n = listt.Count;
-        for (int interval = n / 2; interval > 0; interval /= 2)
+
+        for (int gap = n / 2; gap > 0; gap /= 2)
         {
-            for (int i = interval; i < n; i++)
+
+            for (int i = gap; i < n; i++)
             {
-                var currentKey = listt[i];
-                var k = i;
-                while (k >= interval && listt[k - interval] > currentKey)
+                int temp = listt[i];
+
+                ai.targetPoint = i - 1;
+                yield return new WaitForSeconds(2);
+                numberOfSteps++;
+
+                GameObject.Find("TextN").GetComponent<Text>().text = "Number of steps: " + numberOfSteps;
+                pickUp.PickUpL();
+                yield return new WaitForSeconds(2);
+
+                int j;
+                for (j = i; j >= gap && listt[j - gap] > temp; j -= gap)
                 {
-                    listt[k] = listt[k - interval];
-                    k -= interval;
+                    listt[j] = listt[j - gap];
+
+                    ai.targetPoint = j -gap;
+                    yield return new WaitForSeconds(2);
+                    numberOfSteps++;
+                    GameObject.Find("TextN").GetComponent<Text>().text = "Number of steps: " + numberOfSteps;
+                    pickUp.PickUpR();
+                    yield return new WaitForSeconds(2);
+
+                    numberOfSteps++;
+                    GameObject.Find("TextN").GetComponent<Text>().text = "Number of steps: " + numberOfSteps;
+                    pickUp.PickUpT();
+                    yield return new WaitForSeconds(0.5f);
+                    pickUp.RightToLeft();
+                    yield return new WaitForSeconds(0.5f);
+                    pickUp.TopToRight();
+                    yield return new WaitForSeconds(2);
+
+
+                    pickUp.DropObjectR();
+                    yield return new WaitForSeconds(2);
+                    ai.targetPoint = i - 1;
+                    yield return new WaitForSeconds(2);
                 }
-                listt[k] = currentKey;
+
+                if(pickUp.heldObjL != null)
+                {
+                    pickUp.DropObjectL();
+                    yield return new WaitForSeconds(2);
+                }
+                listt[j] = temp;
             }
         }
-        yield return new WaitForSeconds(2);
+
+        menu.FinalMessageOn();
+        stopTime = true;
     }
 
     IEnumerator StartInsertionSort(List<int> listt)
     {
-        
+        yield return new WaitForSeconds(2);
 
         int n = listt.Count;
         for (int i = 1; i < n; ++i)
         {
-            
             int key = listt[i];
             int j = i - 1;
             //ai = j
@@ -66,6 +116,9 @@ public class BubbleSort : MonoBehaviour
 
             ai.targetPoint = j;
             yield return new WaitForSeconds(4);
+
+            numberOfSteps++;
+            GameObject.Find("TextN").GetComponent<Text>().text = "Number of steps: " + numberOfSteps;
             pickUp.PickUpL();
             yield return new WaitForSeconds(2);
 
@@ -73,10 +126,14 @@ public class BubbleSort : MonoBehaviour
             //zmieniaj pozycje  [j] dopóki 
             while (j >= 0 && listt[j] > key)
             {
-                
+                numberOfSteps++;
+                GameObject.Find("TextN").GetComponent<Text>().text = "Number of steps: " + numberOfSteps;
                 //podnieœ j R
                 pickUp.PickUpR();
                 yield return new WaitForSeconds(0.5f);
+
+                numberOfSteps++;
+                GameObject.Find("TextN").GetComponent<Text>().text = "Number of steps: " + numberOfSteps;
                 //podmianka
                 pickUp.PickUpT();
                 yield return new WaitForSeconds(0.5f);
@@ -90,10 +147,7 @@ public class BubbleSort : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
 
                 listt[j + 1] = listt[j];
-                j = j - 1;
-                
-
-                
+                j = j - 1;                
 
                 //ai = j
                 if (j >=0)
@@ -112,9 +166,7 @@ public class BubbleSort : MonoBehaviour
                 }
             }
 
-
-
-            //podnieœ R
+            //
             if (pickUp.heldObjL != null)
             {
                 pickUp.DropObjectL();
@@ -123,116 +175,13 @@ public class BubbleSort : MonoBehaviour
             yield return new WaitForSeconds(1);
             listt[j + 1] = key;
         }
+        menu.FinalMessageOn();
+        stopTime = true;
     }
 
     
 
-    IEnumerator QuickSort(List<int> listt, int left, int right)
-    {
-        ai.targetPoint = left; // ai idzie na lew¹ strone tablicy
-        yield return new WaitForSeconds(6f);
-        
-
-        var i = left;
-        var j = right;
-        var pivot = listt[left];
-        
-        //yield return new WaitForSeconds(1.5f);
-        
-
-        while (i <= j)
-        {
-            
-            ai.targetPoint = i;
-            yield return new WaitForSeconds(1.5f);
-            pickUp.PickUpR();
-            yield return new WaitForSeconds(0.5f);
-
-            
-
-            while (listt[i] < pivot)
-            {
-                i++;
-                
-            }
-
-            ai.targetPoint = j;
-            yield return new WaitForSeconds(1.5f);
-            
-
-            while (listt[j] > pivot)
-            {
-                j--;
-                ai.targetPoint = j;
-                yield return new WaitForSeconds(1.5f);
-            }
-
-            
-
-
-
-
-            if (i <= j)
-            {
-                ai.targetPoint = j-1;
-                yield return new WaitForSeconds(1.5f);
-                pickUp.PickUpL();
-                yield return new WaitForSeconds(0.5f);
-
-                ai.targetPoint = j;
-                yield return new WaitForSeconds(1.5f);
-                pickUp.DropObjectR();
-                yield return new WaitForSeconds(1.5f);
-
-                ai.targetPoint = i;
-                yield return new WaitForSeconds(5);
-                pickUp.LeftToRight();
-                yield return new WaitForSeconds(1.5f);
-                pickUp.DropObjectR();
-                yield return new WaitForSeconds(1.5f);
-
-
-                int temp = listt[i];
-                listt[i] = listt[j];
-                listt[j] = temp;
-                i++;
-                j--;
-            }
-            else
-            {
-                ai.targetPoint = i;
-                yield return new WaitForSeconds(5);
-                pickUp.DropObjectR();
-                yield return new WaitForSeconds(1.5f);
-
-            }
-
-        }
-        Debug.Log("----------------------------------------");
-        for (int k = 0; k < listt.Count; k++)
-        {
-            Debug.Log(listt[k]);
-        }
-        
-
-
-        
-        if (left < j)
-            StartCoroutine(QuickSort(listt, left, j));
-        yield return new WaitForSeconds(100);
-        Debug.Log("robie lewe");
-        if (i < right)
-            StartCoroutine(QuickSort(listt, i, right));
-        yield return new WaitForSeconds(10);
-        Debug.Log("robie prawe");
-
-        /*
-        for (int k = 0; k < listt.Count; k++)
-        {
-            Debug.Log(listt[k]);
-        }
-        */
-    }
+    
 
     IEnumerator StartBuubleSort(List<int> listt)
     {
@@ -280,10 +229,7 @@ public class BubbleSort : MonoBehaviour
 
         menu.FinalMessageOn();
         stopTime = true;
-        for (int i = 0; i < listt.Count; i++)
-        {
-            //Debug.Log(listt[i]);
-        }
+
     }
 
 

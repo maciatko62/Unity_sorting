@@ -36,6 +36,21 @@ public class MenuScript : MonoBehaviour
         finalMessage.SetActive(false);
     }
 
+    public void Choose1()
+    {
+        PlayerPrefs.SetInt("Sort", 1);
+    }
+    
+    public void Choose2()
+    {
+        PlayerPrefs.SetInt("Sort", 2);
+    }
+    
+    public void Choose3()
+    {
+        PlayerPrefs.SetInt("Sort", 3);
+    }
+
     /*
     public void SoundMenuOn()
     {
